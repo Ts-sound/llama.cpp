@@ -17,7 +17,7 @@ RUN if [ "$TARGETARCH" = "amd64" ] || [ "$TARGETARCH" = "arm64" ]; then \
         echo "Unsupported architecture"; \
         exit 1; \
     fi && \
-    echo "nproc: $(nproc)" && cmake --build build -j 2
+    cmake --build build -j $(nproc)
 
 RUN mkdir -p /app/lib && \
     find build -name "*.so*" -exec cp -P {} /app/lib \;
