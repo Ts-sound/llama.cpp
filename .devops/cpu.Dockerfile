@@ -1,11 +1,13 @@
-ARG UBUNTU_VERSION=22.04
+ARG UBUNTU_VERSION=24.04
 
 FROM ubuntu:$UBUNTU_VERSION AS build
 
 ARG TARGETARCH
 
 RUN apt-get update && \
-    apt-get install -y build-essential git cmake libssl-dev
+    apt-get install -y gcc-14 g++-14 build-essential git cmake libssl-dev
+
+ENV CC=gcc-14 CXX=g++-14
 
 WORKDIR /app
 
