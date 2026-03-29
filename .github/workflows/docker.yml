@@ -200,7 +200,7 @@ jobs:
 
   create_tag:
     name: Create and push git tag
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-slim
     permissions:
       contents: write
 
